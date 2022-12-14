@@ -8,8 +8,18 @@ public class GamePanel extends JPanel {
     private final int gamePanelHeight = 800;
     private final int unitSize = 50;
 
-    GamePanel(){
+
+    public GamePanel(){
         settingUpGamePanel();
+    }
+    public int getGamePanelWidth(){
+        return gamePanelWidth;
+    }
+    public int getGamePanelHeight(){
+        return gamePanelHeight;
+    }
+    public int getUnitSize(){
+        return unitSize;
     }
 
     private void settingUpGamePanel(){

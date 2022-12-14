@@ -24,4 +24,8 @@ public class ScorePanel extends JPanel {
     public void setScorePoints(int z){
         Points = z;
     }
+
+    public int getScorePoints(){
+        return Points;
+    }
 }
