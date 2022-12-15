@@ -5,17 +5,17 @@ import java.awt.*;
 
 public class ScorePanel extends JPanel {
     private int Points = 0;
-    ScorePanel(){
+   public ScorePanel(){
         settingUpScorePanel();
     }
 
     private void settingUpScorePanel(){
         this.setSize(800,200);
-        this.setBackground(Color.GREEN);
+        this.setBackground(Color.black);
 
         JLabel scorePoints = new JLabel();
         scorePoints.setText("Score: "+Points);
-        scorePoints.setForeground(Color.MAGENTA);
+        scorePoints.setForeground(Color.GREEN);
         scorePoints.setFont(new Font("Verdant", Font.BOLD, 100));
         scorePoints.setLayout(new BorderLayout());
         this.add(scorePoints,BorderLayout.CENTER);

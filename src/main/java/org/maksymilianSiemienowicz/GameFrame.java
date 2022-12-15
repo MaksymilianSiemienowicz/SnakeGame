@@ -11,10 +11,10 @@ public class GameFrame extends JFrame {
     private void settingUpFrame(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("SnakeGame");
-        this.add(new ScorePanel());
+        this.add(new ScorePanel(), BorderLayout.NORTH);
         this.add(new GamePanel());
         this.setResizable(false);
-        this.setSize(800,800);
         this.setVisible(true);
+        this.pack();
     }
 }
