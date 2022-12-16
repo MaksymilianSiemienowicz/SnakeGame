@@ -2,7 +2,7 @@ package org.maksymilianSiemienowicz;
 
 import model.Apple;
 import model.Snake;
-import service.Colision;
+import service.Collision;
 import service.EatenApple;
 
 import javax.swing.*;
@@ -12,14 +12,14 @@ import java.awt.event.*;
 public class GamePanel extends JPanel implements ActionListener {
 
 
-    private Apple apple = new Apple();
-    private Snake snake = new Snake();
-     Colision colision= new Colision(snake);
-     EatenApple eatenApple = new EatenApple(apple, snake);
+    private final Apple apple = new Apple();
+    private final Snake snake = new Snake();
+    Collision collision = new Collision(snake);
+    EatenApple eatenApple = new EatenApple(apple, snake);
     private final int gamePanelWidth = 800;
     private final int gamePanelHeight = 800;
     private final int unitSize = 25;
-    private final int delay = 75;
+    private final int delay = 100;
     Timer timer;
 
     public GamePanel() {
@@ -33,13 +33,13 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-        this.setPreferredSize(new Dimension(800,800));
+        this.setPreferredSize(new Dimension(800, 800));
 
     }
 
     private void startGame() {
         apple.setAppleXY();
-        snake.running = true;
+        snake.setSnakeRunning(true);
         timer = new Timer(delay, this);
         timer.start();
     }
@@ -48,12 +48,18 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-       //drawMatrix(g);
+        //drawMatrix(g);
+        drawTopLine(g);
         apple.drawApple(g);
         snake.drawSnake(g);
-        if(!snake.running){
-           colision.gameOver(g);
+        if (!snake.getSnakeRunning()) {
+            collision.gameOver(g);
         }
+    }
+
+    private void drawTopLine(Graphics g){
+        g.setColor(Color.GRAY);
+        g.drawLine(0,0,800,0);
     }
 
     private void drawMatrix(Graphics g) {
@@ -67,13 +73,14 @@ public class GamePanel extends JPanel implements ActionListener {
             g.drawLine(0, i * unitSize, gamePanelWidth, i * unitSize);
         }
     }
+
     //ACTION LISTENER
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (snake.running) {
+        if (snake.getSnakeRunning()) {
             snake.snakeMove();
         }
-        colision.checkColision();
+        collision.checkCollision();
         eatenApple.checkEatApple();
         repaint();
     }
@@ -82,34 +89,42 @@ public class GamePanel extends JPanel implements ActionListener {
     //KEY-ADAPTER
     public class MyKeyAdapter extends KeyAdapter {
         @Override
-        public void keyPressed(KeyEvent e){
+        public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_A:
+                case KeyEvent.VK_LEFT:
                     if (snake.getSnakeDirection() != 'R') {
                         snake.setSnakeDirection('L');
                         System.out.println(snake.getSnakeDirection());
                     }
+                    break;
 
                 case KeyEvent.VK_D:
+                case KeyEvent.VK_RIGHT:
                     if (snake.getSnakeDirection() != 'L') {
                         snake.setSnakeDirection('R');
                         System.out.println(snake.getSnakeDirection());
                     }
+                    break;
 
                 case KeyEvent.VK_W:
+                case KeyEvent.VK_UP:
                     if (snake.getSnakeDirection() != 'D') {
                         snake.setSnakeDirection('U');
                         System.out.println(snake.getSnakeDirection());
                     }
+                    break;
 
                 case KeyEvent.VK_S:
+                case KeyEvent.VK_DOWN:
                     if (snake.getSnakeDirection() != 'U') {
                         snake.setSnakeDirection('D');
                         System.out.println(snake.getSnakeDirection());
                     }
+                    break;
                 default:
                     break;
-                }
             }
         }
     }
+}

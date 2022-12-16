@@ -11,7 +11,8 @@ public class GameFrame extends JFrame {
     private void settingUpFrame(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("SnakeGame");
-        this.add(new ScorePanel(), BorderLayout.NORTH);
+        this.add(ScorePanel.getInstance(), BorderLayout.NORTH);
+        ScorePanel.getInstance().settingUpScorePanel();
         this.add(new GamePanel());
         this.setResizable(false);
         this.setVisible(true);

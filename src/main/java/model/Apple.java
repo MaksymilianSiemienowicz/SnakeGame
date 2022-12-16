@@ -1,12 +1,9 @@
 package model;
-
-import org.maksymilianSiemienowicz.GamePanel;
-
 import java.awt.*;
 import java.util.Random;
 
 public class Apple {
-    private Random rand = new Random();
+    private final Random rand = new Random();
     private int appleX;
     private int appleY;
     public Apple(){

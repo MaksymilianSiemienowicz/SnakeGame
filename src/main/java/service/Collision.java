@@ -4,31 +4,31 @@ import model.Snake;
 
 import java.awt.*;
 
-public class Colision {
+public class Collision {
 
     Snake snake;
-    public Colision(Snake mainSnake){
+    public Collision(Snake mainSnake){
         snake = mainSnake;
     }
 
-    public void checkColision(){
+    public void checkCollision(){
         for(int i = snake.getSnakeElements(); i > 0; i--){
             if(snake.getSnakeXonI(0) == snake.getSnakeXonI(i) && snake.getSnakeYonI(0) == snake.getSnakeYonI(i)){
-                snake.running = false;
+                snake.setSnakeRunning(false);
             }
         }
 
         if(snake.getSnakeXonI(0) < 0){
-            snake.running = false;
+            snake.setSnakeRunning(false);
         }
         if(snake.getSnakeXonI(0) > 800){
-            snake.running = false;
+            snake.setSnakeRunning(false);
         }
         if (snake.getSnakeYonI(0) > 800){
-            snake.running = false;
+            snake.setSnakeRunning(false);
         }
         if(snake.getSnakeYonI(0) < 0){
-            snake.running = false;
+            snake.setSnakeRunning(false);
         }
 
     }

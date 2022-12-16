@@ -4,16 +4,19 @@ import java.awt.*;
 
 public class Snake {
     private int snakeElements = 3;
-    private int snakeXs[] = new int[64];
-    private int snakeYs[] = new int[64];
-    public char direction = 'R';
-    public boolean running = false;
+    private final int[] snakeXs = new int[64];
+    private final int[] snakeYs = new int[64];
+    private char direction = 'R';
+    private boolean running = false;
     public Snake(){
 
     }
 
 
     ////GETTERS////
+    public boolean getSnakeRunning(){
+        return running;
+    }
     public int getSnakeElements(){
         return snakeElements;
     }
@@ -27,15 +30,19 @@ public class Snake {
         return direction;
     }
     ////SETTERS////
+    public void setSnakeRunning(boolean z){
+        running = z;
+    }
     public void setSnakeElements(int i){
         snakeElements = i;
     }
     public void setSnakeDirection(char a){
         direction = a;
     }
-    public void setSnakeDirectionL() {
+    /*public void setSnakeDirectionL() {
         direction = 'L';
     }
+     */
     public void snakeMove(){
         for(int i = snakeElements; i > 0; i--){
             snakeXs[i] = snakeXs[i-1];
@@ -60,7 +67,7 @@ public class Snake {
         for(int i = 0; i < snakeElements; i++){
             if(i == 0){
                 g.setColor(new Color(108, 238, 126));
-                g.fillRect(snakeXs[i],snakeYs[i],25,25);
+                g.fillOval(snakeXs[i],snakeYs[i],25,25);
             }
             else{
                 g.setColor(new Color(32, 255, 0));
