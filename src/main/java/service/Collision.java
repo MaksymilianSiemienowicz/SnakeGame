@@ -19,16 +19,16 @@ public class Collision {
         }
 
         if(snake.getSnakeXonI(0) < 0){
-            snake.setSnakeRunning(false);
+            snake.setSnakeXonI(0,800);
         }
         if(snake.getSnakeXonI(0) > 800){
-            snake.setSnakeRunning(false);
+            snake.setSnakeXonI(0,0);
         }
         if (snake.getSnakeYonI(0) > 800){
-            snake.setSnakeRunning(false);
+            snake.setSnakeYonI(0,0);
         }
         if(snake.getSnakeYonI(0) < 0){
-            snake.setSnakeRunning(false);
+            snake.setSnakeYonI(0,800);
         }
 
     }
@@ -40,5 +40,10 @@ public class Collision {
         g.setColor(Color.red);
         g.setFont(small);
         g.drawString(msg, 0 , 400);
+        String tryAgain ="Press enter to try again...";
+        g.setColor(Color.red);
+        Font tryAgainFont = new Font("Helvetica", Font.BOLD, 50);
+        g.setFont(tryAgainFont);
+        g.drawString(tryAgain,100,600);
     }
 }

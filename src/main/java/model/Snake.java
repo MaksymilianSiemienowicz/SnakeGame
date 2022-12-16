@@ -3,7 +3,7 @@ package model;
 import java.awt.*;
 
 public class Snake {
-    private int snakeElements = 3;
+    private int snakeElements = 10;
     private final int[] snakeXs = new int[64];
     private final int[] snakeYs = new int[64];
     private char direction = 'R';
@@ -38,6 +38,12 @@ public class Snake {
     }
     public void setSnakeDirection(char a){
         direction = a;
+    }
+    public void setSnakeXonI(int i, int z){
+        snakeXs[i] = z;
+    }
+    public void setSnakeYonI(int i, int z){
+        snakeYs[i] = z;
     }
     /*public void setSnakeDirectionL() {
         direction = 'L';

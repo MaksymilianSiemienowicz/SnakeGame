@@ -1,7 +1,5 @@
 package org.maksymilianSiemienowicz;
 
-import service.EatenApple;
-
 import javax.swing.*;
 import java.awt.*;
 

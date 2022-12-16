@@ -53,6 +53,7 @@ public class GamePanel extends JPanel implements ActionListener {
         apple.drawApple(g);
         snake.drawSnake(g);
         if (!snake.getSnakeRunning()) {
+            timer.stop();
             collision.gameOver(g);
         }
     }
@@ -120,6 +121,16 @@ public class GamePanel extends JPanel implements ActionListener {
                     if (snake.getSnakeDirection() != 'U') {
                         snake.setSnakeDirection('D');
                         System.out.println(snake.getSnakeDirection());
+                    }
+                    break;
+                case KeyEvent.VK_ENTER:
+                    if(!snake.getSnakeRunning()){
+                        ScorePanel.getInstance().setScorePoints(0);
+                        snake.setSnakeElements(3);
+                        snake.setSnakeYonI(0,0);
+                        snake.setSnakeXonI(0,0);
+                        snake.setSnakeDirection('R');
+                        startGame();
                     }
                     break;
                 default:
