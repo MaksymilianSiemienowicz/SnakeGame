@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Snake {
     private int snakeElements = 3;
-    private final int[] snakeXs = new int[64];
-    private final int[] snakeYs = new int[64];
+    private final int[] snakeXs = new int[1024];
+    private final int[] snakeYs = new int[1024];
     private char direction = 'R';
     private boolean running = false;
     public Snake(){

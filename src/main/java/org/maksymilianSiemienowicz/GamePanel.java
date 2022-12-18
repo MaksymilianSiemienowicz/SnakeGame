@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //drawMatrix(g);
+        drawMatrix(g);
         drawTopLine(g);
         apple.drawApple(g);
         snake.drawSnake(g);
