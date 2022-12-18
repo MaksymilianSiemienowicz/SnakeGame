@@ -2,8 +2,8 @@ package org.maksymilianSiemienowicz;
 
 import model.Apple;
 import model.Snake;
-import service.Collision;
 import service.EatenApple;
+import service.Collision;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private final Apple apple = new Apple();
     private final Snake snake = new Snake();
-    Collision collision = new Collision(snake);
+    Collision collision = new service.Collision(snake);
     EatenApple eatenApple = new EatenApple(apple, snake);
     private final int gamePanelWidth = 800;
     private final int gamePanelHeight = 800;
@@ -81,8 +81,8 @@ public class GamePanel extends JPanel implements ActionListener {
         if (snake.getSnakeRunning()) {
             snake.snakeMove();
         }
-        collision.checkCollision();
         eatenApple.checkEatApple();
+        collision.checkCollision();
         repaint();
     }
 
@@ -132,7 +132,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         snake.setSnakeDirection('R');
                         startGame();
                     }
-                    break;
+                  break;
                 default:
                     break;
             }

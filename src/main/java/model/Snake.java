@@ -3,13 +3,12 @@ package model;
 import java.awt.*;
 
 public class Snake {
-    private int snakeElements = 10;
+    private int snakeElements = 3;
     private final int[] snakeXs = new int[64];
     private final int[] snakeYs = new int[64];
     private char direction = 'R';
     private boolean running = false;
     public Snake(){
-
     }
 
 
@@ -45,10 +44,9 @@ public class Snake {
     public void setSnakeYonI(int i, int z){
         snakeYs[i] = z;
     }
-    /*public void setSnakeDirectionL() {
-        direction = 'L';
-    }
-     */
+
+
+    ////METHODS///
     public void snakeMove(){
         for(int i = snakeElements; i > 0; i--){
             snakeXs[i] = snakeXs[i-1];

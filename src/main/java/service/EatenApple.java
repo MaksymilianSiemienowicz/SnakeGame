@@ -8,8 +8,6 @@ public class EatenApple {
     Snake snake;
     Apple apple;
 
-    ScorePanel scorePanel;
-
     public EatenApple(Apple apple, Snake snake) {
         this.snake = snake;
         this.apple = apple;
@@ -21,7 +19,6 @@ public class EatenApple {
             snake.setSnakeElements(snake.getSnakeElements() + 1);
             ScorePanel.getInstance().setScorePoints(ScorePanel.getInstance().getScorePoints() + 1);
             System.out.println(ScorePanel.getInstance().getScorePoints());
-            //ADD POINTS METHOD
         }
     }
 }

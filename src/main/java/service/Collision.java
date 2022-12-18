@@ -8,7 +8,7 @@ public class Collision {
 
     Snake snake;
     public Collision(Snake mainSnake){
-        snake = mainSnake;
+        this.snake = mainSnake;
     }
 
     public void checkCollision(){
@@ -21,17 +21,19 @@ public class Collision {
         if(snake.getSnakeXonI(0) < 0){
             snake.setSnakeXonI(0,800);
         }
-        if(snake.getSnakeXonI(0) > 800){
+        else if(snake.getSnakeXonI(0) >= 800){
             snake.setSnakeXonI(0,0);
         }
-        if (snake.getSnakeYonI(0) > 800){
+        else if (snake.getSnakeYonI(0) >= 800){
             snake.setSnakeYonI(0,0);
         }
-        if(snake.getSnakeYonI(0) < 0){
+        else if(snake.getSnakeYonI(0) < 0){
             snake.setSnakeYonI(0,800);
         }
 
     }
+
+
     public void gameOver(Graphics g) {
 
         String msg = "Game Over";
